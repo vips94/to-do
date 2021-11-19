@@ -1,0 +1,107 @@
+@import './../styles/variables.scss';
+
+.home{
+    background: $primaryBg;
+    // width: 100%;
+    height: 92.5vh;
+    // min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 2rem 2rem 2rem;
+    border: 1px solid $buttonBg;
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.2);;
+    border-radius: $borderRadius;
+    // overflow: hidden;
+    
+
+    &__title{
+
+        h1{
+            color: $text;
+            font-size: 150px;
+            font-weight: 480;
+        }
+
+        &__lineThrough{
+            height: 10px;
+            width: 350px;
+            background: $text;
+            z-index: 10;
+            position: absolute;
+            top: 50.5%;
+            left: 38%;
+            animation-duration: 2s;
+            animation-name: changewidth;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+    
+            @keyframes changewidth {
+                from {
+                   width: 0px;
+                   background: rgba($text ,0);
+                }
+              
+                to {
+                    width: 350px;
+                    background: rgba($text ,1);
+                }
+              }
+        }
+    }
+
+    &__img{
+        width: 100%;
+        height: 92.5vh;
+        position: absolute;
+        overflow: hidden;
+
+        &__img1{
+            width: 250px;
+            height: 270px;
+            position: absolute;
+            bottom:0;
+            left: 75%;
+
+            animation-duration: 2s;
+            animation-name: moveBottom;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+    
+            @keyframes moveBottom {
+                from {
+                   transform: translateY(100%);
+                }
+              
+                to {
+                    transform: translateY(10%);
+                }
+            }
+        }
+    
+        &__img2{
+            width: 250px;
+            height: 270px;
+            position: absolute;
+            top:0;
+            left: 8%;
+
+            animation-duration: 2s;
+            animation-name: moveTop;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+    
+            @keyframes moveTop {
+                from {
+                    transform: translateY(-100%) scaleY(-1);
+                 }
+               
+                 to {
+                     transform: translateY(-10%) scaleY(-1);
+                 }
+            }
+        }
+    }
+
+   
+}

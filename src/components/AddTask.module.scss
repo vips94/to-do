@@ -1,0 +1,216 @@
+@import "./../styles/variables.scss";
+
+.addTask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 100%;
+  background: rgba($popupBg, 0.5);
+  backdrop-filter: blur(2px);
+  transform: translate(-100%);
+  transition: 1s ease all;
+  z-index: 200;
+
+  &__card {
+    width: 60%;
+    height: 70%;
+    background: $primaryBg;
+    box-shadow: $boxShadow;
+    border-radius: $borderRadius;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+
+    &__header {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      &__cancel {
+        background: transparent;
+        border: 0;
+        font-size: 15px;
+        color: $text;
+        transition: 0.5s ease all;
+        padding: 10px;
+        border-radius: 5px;
+
+        &:hover{
+            background: rgba(189, 189, 189, 0.445);
+        }
+      }
+
+      &__add {
+        width: 100px;
+        background: $buttonBg;
+        border: 0;
+        border-radius: 5px;
+        box-shadow: $boxShadow;
+        font-size: 15px;
+        color: white;
+        padding: 0.8rem;
+        transition: 0.5s ease all;
+
+        &:hover{
+            transform: scale(1.1,1.1);
+        }
+      }
+    }
+
+    &__form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1.2rem;
+
+      &__inputField {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow: hidden;
+
+        label {
+          font-size: 30px;
+        }
+
+        input[type="text"] {
+          height: 45px;
+          border-radius: 5px;
+          border: 0;
+          padding-left: 1rem;
+          background: rgba($study, 0.3);
+          color: $text;
+        }
+
+        textarea {
+          // height: 10%;
+          max-width: 100%;
+          min-width: 100%;
+          max-height: 100px;
+          min-height: 100px;
+          border-radius: 5px;
+          border: 0;
+          padding: 1rem;
+          background: rgba($study, 0.3);
+          color: $text;
+        }
+      }
+
+      &__tags {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        label {
+          padding-top: 0.5rem;
+          font-size: 30px;
+        }
+
+        &__ul {
+          padding-top: 0.5rem;
+          list-style: none;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 1rem;
+
+          &__button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 5px 8px 5px 8px;
+            border-radius: 50px;
+            transition: 0.6s;
+            border: 0;
+            
+
+            &:hover, &:focus{
+                 background: rgb(41, 41, 41);
+            }
+
+            &:hover span,
+            &:focus span {
+              transform: translateX(-31px);
+              color: white;
+            }
+
+            &:hover &__work,
+            &:focus &__work {
+              transform: translateX(47px);
+            }
+
+            &:hover &__study,
+            &:focus &__study {
+              transform: translateX(52px);
+            }
+
+            &:hover &__enter,
+            &:focus &__enter {
+              transform: translateX(120px);
+            }
+
+            &:hover &__family,
+            &:focus &__family {
+              transform: translateX(56px);
+            }
+
+            span {
+              border: 0;
+              color: $text;
+              font-size: 18px;
+              transition: 0.6s;
+            }
+
+            &__work {
+              background: $work;
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+
+              &::before{
+                  width: 10px;
+                  height: 10px;
+                  border-radius: 50%;
+                  background:black;
+                  position: absolute;
+                  z-index: 100;
+              }
+            }
+
+            &__study {
+              background: $study;
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+            }
+
+            &__enter {
+              background: $entertainment;
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+            }
+
+            &__family {
+              background: $family;
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
