@@ -16,3 +16,12 @@ $text: #69665c;
 //box
 $boxShadow : 0px 5px 10px 1px rgba(0, 0, 0, 0.2);
 $borderRadius : 12px;
+
+@mixin breakpoint($point){
+    @if $point == md {
+        // which is 768px
+        @media (max-width : 768px) {
+            @content;
+        }
+    }
+}

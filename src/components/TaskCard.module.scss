@@ -11,6 +11,11 @@
     flex-direction: column;
     justify-content: center;
 
+    @include breakpoint(md){
+        width: 100%;
+        min-height: 100px;
+    }
+
     &__title{
         display: flex;
         flex-direction: row;

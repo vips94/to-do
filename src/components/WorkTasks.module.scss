@@ -12,6 +12,10 @@
         display: flex;
         flex-flow: row wrap;
         min-height: 0; 
+
+        @include breakpoint(md){
+            flex-flow: column wrap;
+        }
     }
 
 }

@@ -20,10 +20,10 @@ const GetStarted = ()=>{
                 <button>Login</button>
             </div>
             <div className={classes.getStarted__avatar}>
-                <img src="/images/2.png" alt='avatar'/>
-                <img src="/images/7.png" alt='avatar'/>
+                <img src={process.env.PUBLIC_URL+"/images/2.png"} alt='avatar'/>
+                <img src={process.env.PUBLIC_URL+"/images/7.png"} alt='avatar'/>
             </div>
-            <div className={classes.getStarted__card}/>
+            <img src={process.env.PUBLIC_URL+"/images/card.png"} className={classes.getStarted__card} alt="task card"/>
 
         </div>
     );

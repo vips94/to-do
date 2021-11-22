@@ -14,6 +14,10 @@
   transition: 1s ease all;
   z-index: 200;
 
+  @include breakpoint(md){
+    backdrop-filter: none;
+  }
+
   &__card {
     width: 60%;
     height: 70%;
@@ -25,6 +29,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
+
+    @include breakpoint(md){
+        width: 100%;
+        height: 100%;
+        padding: 2rem 1rem 2rem 1rem;
+    }
 
     &__header {
       width: 100%;
@@ -123,6 +133,11 @@
           align-items: center;
           gap: 1rem;
 
+          @include breakpoint(md){
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
           &__button {
             display: flex;
             flex-direction: row;
@@ -148,21 +163,49 @@
             &:hover &__work,
             &:focus &__work {
               transform: translateX(47px);
+
+              &::after{
+                    height: 7px;
+                    border-radius: 0;
+                    border-bottom-left-radius: 25px;
+                    border-bottom-right-radius: 25px;
+                }
             }
 
             &:hover &__study,
             &:focus &__study {
               transform: translateX(52px);
+
+              &::after{
+                height: 7px;
+                border-radius: 0;
+                border-bottom-left-radius: 25px;
+                border-bottom-right-radius: 25px;
+            }
             }
 
             &:hover &__enter,
             &:focus &__enter {
               transform: translateX(120px);
+
+              &::after{
+                height: 7px;
+                border-radius: 0;
+                border-bottom-left-radius: 25px;
+                border-bottom-right-radius: 25px;
+            }
             }
 
             &:hover &__family,
             &:focus &__family {
               transform: translateX(56px);
+
+              &::after{
+                height: 7px;
+                border-radius: 0;
+                border-bottom-left-radius: 25px;
+                border-bottom-right-radius: 25px;
+            }
             }
 
             span {
@@ -177,15 +220,32 @@
               width: 25px;
               height: 25px;
               border-radius: 50%;
+              position: relative;
 
               &::before{
-                  width: 10px;
-                  height: 10px;
+                  content: '';
+                  width: 5px;
+                  height: 5px;
                   border-radius: 50%;
                   background:black;
                   position: absolute;
+                  left: 5px;
+                  top: 5px;
                   z-index: 100;
+                  box-shadow: 10px 0px 0px black;
               }
+
+              &::after{
+                content: '';
+                width: 15px;
+                height: 3px;
+                border-radius: 12px;
+                background:black;
+                position: absolute;
+                left: 5px;
+                top: 15px;
+                z-index: 100;
+            }
             }
 
             &__study {
@@ -193,6 +253,32 @@
               width: 25px;
               height: 25px;
               border-radius: 50%;
+              position: relative;
+
+              &::before{
+                content: '';
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background:black;
+                position: absolute;
+                left: 5px;
+                top: 5px;
+                z-index: 100;
+                box-shadow: 10px 0px 0px black;
+            }
+
+            &::after{
+              content: '';
+              width: 15px;
+              height: 3px;
+              border-radius: 12px;
+              background:black;
+              position: absolute;
+              left: 5px;
+              top: 15px;
+              z-index: 100;
+          }
             }
 
             &__enter {
@@ -200,6 +286,32 @@
               width: 25px;
               height: 25px;
               border-radius: 50%;
+              position: relative;
+
+              &::before{
+                content: '';
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background:black;
+                position: absolute;
+                left: 5px;
+                top: 5px;
+                z-index: 100;
+                box-shadow: 10px 0px 0px black;
+            }
+
+            &::after{
+              content: '';
+              width: 15px;
+              height: 3px;
+              border-radius: 12px;
+              background:black;
+              position: absolute;
+              left: 5px;
+              top: 15px;
+              z-index: 100;
+          }
             }
 
             &__family {
@@ -207,10 +319,45 @@
               width: 25px;
               height: 25px;
               border-radius: 50%;
+              position: relative;
+
+              &::before{
+                content: '';
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background:black;
+                position: absolute;
+                left: 5px;
+                top: 5px;
+                z-index: 100;
+                box-shadow: 10px 0px 0px black;
+            }
+
+            &::after{
+              content: '';
+              width: 15px;
+              height: 3px;
+              border-radius: 12px;
+              background:black;
+              position: absolute;
+              left: 5px;
+              top: 15px;
+              z-index: 100;
+          }
             }
           }
         }
       }
     }
+    // &__adding{
+    //     width: 100%;
+    //     height: 100%;
+    //     background: rgba($popupBg, 0.5);
+    //     backdrop-filter: blur(2px);
+    //     position: absolute;
+    // }
   }
+
+  
 }
