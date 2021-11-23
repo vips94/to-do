@@ -254,7 +254,7 @@ const Todo = () => {
       <nav className={classes.todo__nav}>
         <ul>
           <li>
-            <NavLink exact="true" to="/work">
+            <NavLink exact="true" to="/">
               <span className={classes.todo__nav__work} />
               <p>work</p>
             </NavLink>
@@ -282,7 +282,7 @@ const Todo = () => {
       </nav>
       <div className={classes.todo__tasksArea}>
         <Routes>
-          <Route path="/work" element={<WorkTasks editHandler={editHandler} deleteHandler={deleteHandler} isDoneClicked={DoneClickedHandler} workTasks={workTasks} />} />
+          <Route path="/" element={<WorkTasks editHandler={editHandler} deleteHandler={deleteHandler} isDoneClicked={DoneClickedHandler} workTasks={workTasks} />} />
           <Route
             path="/study"
             element={<StudyTasks deleteHandler={deleteHandler} editHandler={editHandler} isDoneClicked={DoneClickedHandler} studyTasks={studyTasks} />}
