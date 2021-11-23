@@ -48,6 +48,7 @@ const TaskCard = (props)=>{
         <div className={classes.taskCard} onClick={closeMenu}>
             <div className={classes.taskCard__title}>
                 <h3 className={isDone ? classes.isDone : ""}>{props.title}</h3>
+                <span/>
                 <div className={classes.taskCard__title__menuContainer}>
                     <BsThreeDots className={classes.taskCard__title__menuContainer__menu} onClick={toggleMenu}/>
                     { menuOpen && <TaskMenuPopup editHandler={editHandler} deleteHandler={deleteHandler} onClick = {(event) => event.stopPropagation()}/>}

@@ -12,13 +12,17 @@ const FamilyTasks = (props)=>{
     props.deleteHandler(taskInfo);
 }
 
+const editHandler = (taskInfo)=>{
+    props.editHandler(taskInfo);
+}
+
     return(
         <div className={classes.tasks}>
             <div className={classes.tasks__container}>
             {
                 props.familyTasks.map((item)=>{
                     return(
-                        <TaskCard deleteHandler={deleteHandler} key={item.id} field={item.field} id={item.id} isDoneClicked={doneClickHander} title={item.title} description={item.description} isDone={item.isDone}/>
+                        <TaskCard editHandler={editHandler} deleteHandler={deleteHandler} key={item.id} field={item.field} id={item.id} isDoneClicked={doneClickHander} title={item.title} description={item.description} isDone={item.isDone}/>
                     );
                 })
             }

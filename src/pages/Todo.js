@@ -91,13 +91,17 @@ const Todo = () => {
   const [familyTasks, setFamilyTasks] = useState(familyTasksList);
   const [studyTasks, setStudyTasks] = useState(studyTasksList);
   const [entertainmentTasks, setEntertainmentTasks] = useState(entertainmentTasksList);
+  const [editedTask , setEditedTask] = useState({});
+//   const [editdescription,setEditDescription] = useState("");
+//   const [nonEditField , setNonEditField] = useState("");
+//   const [editId,setEditId] = useState();
 
   const newTaskMenuHandler = () => {
+    setEditedTask({});
     setAddTaskMenu((p) => !p);
   };
 
   const DoneClickedHandler = (taskInfo)=>{
-        console.log(taskInfo);
 
         if(taskInfo.field === "work"){
             const updatedWorkList = workTasks.map((obj)=>{
@@ -161,39 +165,81 @@ const Todo = () => {
   }
 
   const newTaskAddedHandler = (newTask) => {
-
     const createTask = {
       title: newTask.title,
       description: newTask.description,
       isDone: false,
       id:newTask.id
     };
-
     if (newTask.work) {
       setWorkTasks((prevState) => {
         createTask.field = "work";
-        return [createTask, ...prevState];
+        return updateObject(prevState,createTask);
       });
     } else if (newTask.family) {
       setFamilyTasks((prevState) => {
         createTask.field = "family";
-        return [createTask, ...prevState];
+        return updateObject(prevState,createTask);
       });
     } else if (newTask.study) {
       setStudyTasks((prevState) => {
         createTask.field = "study";
-        return [createTask, ...prevState];
+        return updateObject(prevState,createTask);
       });
     } else {
       setEntertainmentTasks((prevState) => {
         createTask.field = "entertainment";
-        return [createTask, ...prevState];
+        return updateObject(prevState,createTask);
       });
     }
   };
 
-  const editHandler = ()=>{
-      
+  const updateObject = function(prevState,createTask){
+    for(let i =0;i<prevState.length;i++){
+        if(prevState[i].id === createTask.id)
+        {
+            prevState[i].title = createTask.title;
+            prevState[i].description = createTask.description;
+            prevState[i].isDone = createTask.isDone;
+            return prevState;
+        }
+    }
+    return [createTask,...prevState];
+  }
+
+  const editHandler = (taskInfo)=>{
+
+    let editedTask = [];
+    if (taskInfo.field === 'work') {
+        editedTask = workTasks.filter((item)=>{
+           return item.id === taskInfo.id
+       })
+       
+    } else if (taskInfo.field === 'family') {
+         editedTask = familyTasks.filter((item)=>{
+            return item.id === taskInfo.id
+        })
+    } else if (taskInfo.field === 'study') {
+     editedTask = studyTasks.filter((item)=>{
+            return item.id === taskInfo.id
+        })
+    } else{
+         editedTask = entertainmentTasks.filter((item)=>{
+            return item.id === taskInfo.id
+        })
+    }
+
+    const taskdata = {
+        title : editedTask[0].title,
+        description : editedTask[0].description,
+        work:editedTask[0].field==="work" ? true : false,
+        family:editedTask[0].field==="family" ? true : false,
+        entertainment:editedTask[0].field==="entertainment" ? true : false,
+        study:editedTask[0].field==="study" ? true : false,
+        id:taskInfo.id
+    }
+    setAddTaskMenu((p) => !p);
+    setEditedTask(taskdata);
   }
 
   return (
@@ -255,6 +301,7 @@ const Todo = () => {
       </div>
       {addTaskMenu && (
         <AddTask
+          editedTask = {editedTask}
           onNewTaskAdded={newTaskAddedHandler}
           closeTaskTab={newTaskMenuHandler}
         />
