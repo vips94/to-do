@@ -12,77 +12,45 @@ import { Route, Routes, NavLink } from "react-router-dom";
 const workTasksList = [
     {
         field:"work",
-        title: "first",
+        title: "Work Title",
         description:
-          "complete this task before the day end otherewise face the consequences.",
+          "Write the Description Regarding the the above title",
         isDone: false,
         id:1
-      },
-      {
-        field:"work",
-        title: "second",
-        description:
-          "complete this task before the day end otherewise face the consequences.",
-        isDone: false,
-        id:2
-      },
+      }
 ];
 
 const familyTasksList = [
   {
     field:"family",
-    title: "first",
+    title: "Family Title",
     description:
-      "complete this task before the day end otherewise face the consequences.",
+      "Write the Description Regarding the the above title",
     isDone: false,
-    id:3
-  },
-  {
-    field:"family",
-    title: "second",
-    description:
-      "complete this task before the day end otherewise face the consequences.",
-    isDone: false,
-    id:4
-  },
+    id:1
+  }
 ];
 
 const entertainmentTasksList = [
   {
     field:"entertainment",
-    title: "first",
+    title: "Entertainment Title",
     description:
-      "complete this task before the day end otherewise face the consequences.",
+        "Write the Description Regarding the the above title",
     isDone: false,
-    id:5
+    id:1
   },
 ];
 
 const studyTasksList = [
   {
     field:"study",
-    title: "first",
+    title: "Study Title",
     description:
-      "complete this task before the day end otherewise face the consequences.",
+      "Write the Description Regarding the the above title",
     isDone: false,
-    id:7
-  },
-  {
-    field:"study",
-    title: "second",
-    description:
-      "complete this task before the day end otherewise face the consequences.",
-    isDone: false,
-    id:8
-  },
-  {
-    field:"study",
-    title: "third",
-    description:
-      "complete this task before the day end otherewise face the consequences.",
-    isDone: false,
-    id:9
-  },
+    id:1
+  }
 ];
 
 const Todo = () => {
