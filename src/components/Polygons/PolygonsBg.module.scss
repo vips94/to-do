@@ -1,0 +1,149 @@
+@import "./../../styles/variables.scss";
+
+.background {
+  width: 100%;
+  height: 92.5vh;
+  position: absolute;
+  background: $primaryBg;
+  z-index: -100;
+
+  &__box1,
+  &__box2,
+  &__box3,
+  &__circle1,
+  &__circle2 {
+    width: 70px;
+    height: 70px;
+    border: 10px solid $work;
+    position: absolute;
+    top: 100px;
+    left: 140px;
+    animation: square 2s linear alternate infinite;
+
+    @include breakpoint(md) {
+      width: 50px;
+      height: 50px;
+      border: 8px solid $work;
+    }
+
+    @keyframes square {
+      0% {
+        border-color: $work;
+        transform: scale(1);
+      }
+      25% {
+        border-color: $study;
+      }
+      50% {
+        border-color: $family;
+      }
+      100% {
+        border-color: $entertainment;
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__box2 {
+    top: auto;
+    bottom: 150px;
+    right: 100px;
+    left: auto;
+    animation-duration: 4s;
+  }
+
+  &__box3 {
+    top: auto;
+    bottom: 50%;
+    right: 10%;
+    left: auto;
+    animation-duration: 1s;
+  }
+
+  &__circle1 {
+    border-radius: 50%;
+    top: 80%;
+    left: 20%;
+    animation-duration: 3s;
+  }
+
+  &__circle2 {
+    border-radius: 50%;
+    top: 30%;
+    left: 40%;
+    animation-duration: 1s;
+  }
+
+  &__triangle1, &__triangle2 {
+    position: relative;
+    width: 154px;
+    height: 100px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid $study;
+    left: 65%;
+    top: 15%;
+    animation: triangle 2s linear alternate infinite;
+
+    @include breakpoint(md) {
+        transform: scale(0.6);
+    }
+   
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-left: 15px solid $study;
+      border-top: 15px solid $study;
+      border-bottom: 15px solid transparent;
+      border-right: 15px solid transparent;
+      transform: rotate(45deg) skew(10deg, 10deg);
+      left: -2px;
+      bottom: -79px;
+      animation: trianglehalf 2s linear alternate infinite;
+    }
+
+    @keyframes trianglehalf {
+        0% {
+            border-left-color: $work;
+            border-top-color: $work;
+        //   transform: scale(1);
+        }
+        25% {
+            border-left-color: $study;
+            border-top-color: $study;
+        }
+        50% {
+            border-left-color: $family;
+            border-top-color: $family;
+        }
+        100% {
+            border-left-color: $entertainment;
+            border-top-color: $entertainment;
+        //   transform: scale(1.2);
+        }
+    }
+    @keyframes triangle {
+        0% {
+            border-bottom-color: $work;
+            // transform: scale(0.8);
+        }
+        25% {
+            border-bottom-color: $study;
+        }
+        50% {
+            border-bottom-color: $family;
+        }
+        100% {
+            border-bottom-color: $entertainment;
+            // transform: scale(1);
+        }
+    }
+  }
+  &__triangle2{
+    left: 10%;
+    top: 35%;
+  }
+}

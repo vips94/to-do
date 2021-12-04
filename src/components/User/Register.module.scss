@@ -1,0 +1,234 @@
+@import './../../styles/variables.scss';
+
+.register{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 100%;
+    background: rgba($popupBg, 0.5);
+    backdrop-filter: blur(2px);
+    transform: translate(-100%);
+    transition: 1s ease all;
+    z-index: 200;
+    animation: bgDrop 0.5s ease forwards;
+
+    @include breakpoint(md){
+        backdrop-filter: none;
+    }
+
+    &__close{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 100%;
+        background: rgba($popupBg, 0.5);
+        backdrop-filter: blur(2px);
+        transform: translate(-100%);
+        transition: 1s ease all;
+        z-index: 200;
+        animation: bgpick 0.5s ease forwards;
+    }
+
+    @keyframes bgDrop {
+        0%{
+            
+            opacity: 0;
+        }
+        100%{
+           
+            opacity: 1;
+        }
+    }
+
+    @keyframes bgpick {
+        0%{
+            
+            opacity: 1;
+        }
+        100%{
+            
+            opacity: 0;
+        }
+    }
+
+    h1{
+        font-size: 40px;
+        background: linear-gradient(to right, $work, $family,$entertainment, $study);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
+
+    &__container{
+        width: 40%;
+        height: 70%;
+        background: $primaryBg;
+        box-shadow: $boxShadow;
+        border-radius: $borderRadius;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        gap:2rem;
+        animation: drop 0.5s ease forwards;
+
+        @keyframes drop {
+            0%{
+                transform: translateY(-500px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        &__close{
+            width: 40%;
+            height: 70%;
+            background: $primaryBg;
+            box-shadow: $boxShadow;
+            border-radius: $borderRadius;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            gap:2rem;
+            animation: pick 0.5s ease forwards;
+
+            @include breakpoint(md){
+                width: 100%;
+                height: 100%;
+                padding: 2rem 1rem 2rem 1rem;
+            }
+        }
+
+        @keyframes pick {
+            100%{
+                transform: translateY(-500px);
+                opacity: 0;
+            }
+            0%{
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    
+        @include breakpoint(md){
+            width: 100%;
+            height: 100%;
+            padding: 2rem 1rem 2rem 1rem;
+        }
+
+        button{
+            background: transparent;
+            font-size: 30px;
+            font-weight: bold;
+            border: 0;
+            transition: 0.5s ease all;
+
+            &:hover{
+                transform: scale(1.2);
+                color: red;
+            }
+        }
+
+        &__form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:1rem;
+            width: 100%;
+
+            input[type="text"],input[type="password"],input[type="email"],input[type="submit"]{
+                width: 70%;
+                height: 50px;
+                border-radius: $borderRadius;
+                text-align: center;
+                border:2px solid $entertainment;
+                font-size: 18px;
+                transition: 0.5s ease all;
+                overflow: hidden;
+                color: $text;
+                
+                &::placeholder{
+                    color: rgba($text,0.3);
+                }
+
+                &:hover{
+                    width: 90%;
+                    border:2px solid $family;
+                }
+
+                &:focus{
+                    width: 90%;
+                    border:2px solid $family;
+                }
+
+                &:focus-visible{
+                    outline-color: $family;
+                }
+                // box-shadow: 2px 2px 5px 1px $entertainment;
+            }
+
+            input[type="submit"]{
+                margin-top: 2rem;
+                width: 30%;
+                border:2px solid $family;
+                background: transparent;
+                color: $text;
+
+                &:hover{
+                    width: 30%;
+                    background: $family;
+                }
+
+                &:active{
+                    width: 30%;
+                    background: $family;
+                    box-shadow: 2px 2px 5px 1px $entertainment;
+                }
+
+                &:focus{
+                    width: 30%;
+                    background: $family;
+                    box-shadow: 0px 0px 5px 2px $entertainment;
+                }
+
+                &:focus-visible{
+                    width: 30%;
+                    background: $family;
+                    outline-color: $family;
+                }
+            }
+        }
+
+        span{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            button{
+                background: transparent;
+                border: 0;
+                color: $entertainment;
+                font-size: 22px;
+
+                &:hover{
+                    color: $family;
+                }
+            }
+        }
+
+       
+    }
+
+    
+}

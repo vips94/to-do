@@ -1,7 +1,7 @@
 @import './../styles/variables.scss';
 
 .home{
-    background: $primaryBg;
+    background: transparent;
     // width: 100%;
     min-height: 92.5vh;
     display: flex;
@@ -32,7 +32,7 @@
 
         &__lineThrough{
             height: 10px;
-            width: 350px;
+            width: 100%;
             background: $text;
             z-index: 10;
             position: absolute;
@@ -44,7 +44,7 @@
 
             @include breakpoint(md){
                 height: 6px;
-                width: 190px;
+                width: 100%;
             }
     
             @keyframes changewidth {
@@ -54,7 +54,7 @@
                 }
               
                 to {
-                    width: 190px;
+                    width: 100%;
                     background: rgba($text ,1);
                 }
               }
